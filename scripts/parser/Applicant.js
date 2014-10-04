@@ -1,4 +1,4 @@
-var Application = function(application){
+var Applicant = function(){
   var name = "";
   var DOB = "";
   var resume = ""; 
