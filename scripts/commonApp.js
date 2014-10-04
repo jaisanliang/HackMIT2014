@@ -1,8 +1,5 @@
-var CommonApp = function(){
-   
-});
-
-$('#drop_zone').onDrop(function(){
-  
-
+require(["parser/Applicant"], function(Applicant){
+  var Person = Applicant();  
+  Person.name = "hello";
+  console.log(Person.getName());
 });

@@ -1,15 +1,19 @@
-var Application = function(application){
-  var name = "";
-  var DOB = "";
-  var resume = ""; 
+define([], function(){ 
+  var Application = function(){
+    this.name = "";
+    this.DOB = "";
+    this.resume = ""; 
 
-  function getName(){ return name; }
-  function getDOB(){ return DOB; }
-  function getResume(){ return resume; }
-  
-  return {
-    getName: getName,
-    getDOB: getDOB,
-    getResume: getResume
+    function getName(){ return this.name; }
+    function getDOB(){ return this.DOB; }
+    function getResume(){ return this.resume; }
+    
+    return {
+      getName: getName,
+      getDOB: getDOB,
+      getResume: getResume
+    };
   };
-};
+
+  return Application;
+});
