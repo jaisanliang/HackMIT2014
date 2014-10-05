@@ -6,42 +6,51 @@
     items = evt.dataTransfer.items;
     var length = evt.dataTransfer.items.length;
     var output = [];
+    console.log(items);
 
     for (var i = 0; i < length; i++) {
       f = items[i];
-      var entry = evt.dataTransfer.items[i].webkitGetAsEntry();
-      //entry.copyTo(temporaryFs.root, entry.name, successCallback, errorCallback);
-
-      if (entry.isFile) {
-        output.push('<li><strong> file: ', escape(entry.name), '</strong> (', f.type || 'n/a', ') - ',
-                  entry.size, ' bytes, last modified: ',
-                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                  '</li>');
-        //showFileEntry(entry)
-        console.log(entry);
-      } else if (entry.isDirectory) {
-        //traverseDirectoryTree(entry);
-        console.log(entry);
+      console.log(f);
+      var entry = items[i].webkitGetAsEntry();
+      console.log(entry.filesystem.root);
+      if (entry) {
+         traverseFileTree(entry);
       }
+      // if (entry.isFile) {
+      //   output.push('<li><strong> file: ', escape(entry.name), '</strong> (', f.type || 'n/a', ') - ',
+      //             f.size, ' bytes, last modified: ',
+      //             f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+      //             '</li>');
+      //   //showFileEntry(entry)
+
+      // } else if (entry.isDirectory) {
+      //   var dirReader = entry.createReader();
+      //   dirReader.readEntries(function(entries) {
+      //     for (var i=0; i<entries.length; i++) {
+      //       traverseFileTree(entries[i], path + entry.name + "/");
+      //     }
+      //   });
+      // }
     }
 
-      //var item = files[i].webkitGetAsEntry();
-
-      // var reader = new FileReader();
-      // reader.onload = function(e) {
-      //   var text = reader.result;
-      //   console.log(text);
-      // }
-
-      // //reader.readAsText(files[i]);
-      // reader.readAsDataURL(files[i]);
-
-    
-      //console.log(item);
-      //if (item) {
-      //  traverseFileTree(item);
-      //}
-
+function traverseFileTree(item, path) {
+  path = path || "";
+  if (item.isFile) {
+    console.log('hi');
+    // Get file
+    item.file(function(file) {
+      console.log("File:", path + file.name);
+    }, function(e) {console.log(e);});
+  } else if (item.isDirectory) {
+    // Get folder contents
+    var dirReader = item.createReader();
+    dirReader.readEntries(function(entries) {
+      for (var i=0; i<entries.length; i++) {
+        traverseFileTree(entries[i], path + item.name + "/");
+      }
+    });
+  }
+}
 
 
     document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
