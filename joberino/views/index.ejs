@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fritter</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body> 
+  	<% if (typeof(login) !== 'undefined') { %>
+      <a href='/users/login'>Log in</a> |
+    <% } %> 
+    <% if (typeof(signup) !== 'undefined') { %>
+      <a href='/users/signup'>Sign Up</a>
+    <% } %> 
+    <% if (typeof(logout) !== 'undefined') { %>
+      <a href='/users/logout'>Log Out</a> |
+    <% } %> 
+  	<% if (typeof(home) !== 'undefined') { %>
+      <a href='/users'>My Home</a>
+    <% } %> 
+    <h1> <a href='/'>Fritter</a> </h1>
+    <div id='container'>
+      <ul>
+  	    <% for(var i=0; i<freets.length; i++) { %>
+  	      <li class = "freets">
+  	      	<p class = "freet"><%= freets[i].freet%></p>
+  	      	<p class = "lighten">by <b><%= freets[i].user%></b> <%= " on " + freets[i].date%></p>
+  	      </li>
+   	    <% } %>
+	  </ul>
+    </div>
+  </body>
+</html>
