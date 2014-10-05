@@ -12,15 +12,13 @@ define([], function(){
 	}
 	*/
 	
-	
-    this.name = "";
+    this.Name = "";
     this.DOB = "";
-    this.resume = "";
-	
+    this.Resume = "";
 
-    function getName(){ return name; }
-    function getDOB(){ return DOB; }
-    function getResume(){ return resume; }
+    function getName(){ return this.Name; }
+    function getDOB(){ return this.DOB; }
+    function getResume(){ return this.Resume; }
 	function getFields(){ return fields; }
     
 	
@@ -31,6 +29,6 @@ define([], function(){
 	  getFields: getFields
     };
   };
-
+  
   return Application;
 });
