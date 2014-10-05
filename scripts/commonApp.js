@@ -1,6 +1,8 @@
-require(["parser/parser"], function(Parser){
-  var App = Parser();
-  read = App.parse("asdfasdf Name Eric \n Wang \n DOB 12 \n Resume 1234");
-  console.log(read.getDOB());
-  console.log(read.getName());
+require(["parser/parser", "../joberino/public/javascripts/dragDrop"], function(Parser, initiateDropzone){
+  $('document').ready(function(){
+	var App = Parser();
+	initiateDropzone();
+	read = App.parse();
+	console.log(read.getResume());
+  });
 });
