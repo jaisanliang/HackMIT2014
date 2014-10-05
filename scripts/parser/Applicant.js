@@ -3,34 +3,47 @@ define([], function(){
   
 	this.fields = ["Name", "DOB", "Resume"];
 	
-	/*
-	function getFields(){ return fields; }
-	var funcs = {};
+	var funcs = {}; //dict of get methods
+	funcs["getFields"] = function(){ return fields; }
+	
 	for(var i = 0, len = fields.length; i < len; i++){
-		this[fields[i]] = "";
-		funcs['get'+fields[i]] = function(){ return fields[i]; };
+		this[fields[i]] = "yup";
+		var temp = this[fields[i]];
+		funcs["get"+this.fields[i]] = function(i){
+			return function(){ return this[fields[i]]}; 
+		}(i);
 	}
-	*/
-	
-	
-    this.name = "";
+		
+	/* old hardcode solution
+    this.Name = "";
     this.DOB = "";
-    this.resume = "";
-	
+    this.Resume = "";
 
-    function getName(){ return name; }
-    function getDOB(){ return DOB; }
-    function getResume(){ return resume; }
+    function getName(){ return this.Name; }
+    function getDOB(){ return this.DOB; }
+    function getResume(){ return this.Resume; }
 	function getFields(){ return fields; }
-    
+    */
 	
+	var r = {}; //thing to return
+	
+	r["getFields"] = funcs["getFields"];
+	
+	for(var i = 0, len = fields.length; i < len; i++){
+		r["get"+this.fields[i]] = funcs["get"+this.fields[i]];	
+	}
+	
+	return r
+	
+	/* old hardcode return
     return {
-      getName: getName,
-      getDOB: getDOB,
-      getResume: getResume,
-	  getFields: getFields
+      getName: funcs["getName"],
+      getDOB: funcs["getDOB"],
+      getResume: funcs["getResume"],
+	  getFields: funcs["getFields"]
     };
+	*/
   };
-
+  
   return Application;
 });

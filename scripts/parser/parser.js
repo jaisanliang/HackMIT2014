@@ -20,10 +20,7 @@ define(['parser/Applicant'], function(Applicant){
         else if(current_name !== ""){
           person[field_names[j-1]] += " " + lines[i];
         }	
-      }
-      
-      var tempStr = "";
-      
+      }      
       return person;
     }
 
