@@ -1,0 +1,101 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose readDependencies using package.json deps
+6 verbose install where, deps [ 'C:\\Users\\Eric\\Documents\\MIT_Sophomore\\HackMIT2014\\joberino',
+6 verbose install   [ 'express-session',
+6 verbose install     'express',
+6 verbose install     'static-favicon',
+6 verbose install     'morgan',
+6 verbose install     'cookie-parser',
+6 verbose install     'body-parser',
+6 verbose install     'debug',
+6 verbose install     'ejs',
+6 verbose install     'monk' ] ]
+7 info preinstall fritter@0.0.1
+8 verbose readDependencies using package.json deps
+9 verbose already installed skipping express-session@~1.0.2 C:\Users\Eric\Documents\MIT_Sophomore\HackMIT2014\joberino
+10 verbose already installed skipping express@~4.2.0 C:\Users\Eric\Documents\MIT_Sophomore\HackMIT2014\joberino
+11 verbose already installed skipping static-favicon@~1.0.0 C:\Users\Eric\Documents\MIT_Sophomore\HackMIT2014\joberino
+12 verbose already installed skipping morgan@~1.0.0 C:\Users\Eric\Documents\MIT_Sophomore\HackMIT2014\joberino
+13 verbose already installed skipping cookie-parser@~1.0.1 C:\Users\Eric\Documents\MIT_Sophomore\HackMIT2014\joberino
+14 verbose already installed skipping body-parser@~1.0.0 C:\Users\Eric\Documents\MIT_Sophomore\HackMIT2014\joberino
+15 verbose already installed skipping debug@~0.7.4 C:\Users\Eric\Documents\MIT_Sophomore\HackMIT2014\joberino
+16 verbose already installed skipping ejs@~0.8.5 C:\Users\Eric\Documents\MIT_Sophomore\HackMIT2014\joberino
+17 verbose cache add [ 'monk@3.4.0', null ]
+18 verbose cache add name=undefined spec="monk@3.4.0" args=["monk@3.4.0",null]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: 'monk@3.4.0',
+19 verbose parsed url   path: 'monk@3.4.0',
+19 verbose parsed url   href: 'monk@3.4.0' }
+20 verbose cache add name="monk" spec="3.4.0" args=["monk","3.4.0"]
+21 verbose parsed url { protocol: null,
+21 verbose parsed url   slashes: null,
+21 verbose parsed url   auth: null,
+21 verbose parsed url   host: null,
+21 verbose parsed url   port: null,
+21 verbose parsed url   hostname: null,
+21 verbose parsed url   hash: null,
+21 verbose parsed url   search: null,
+21 verbose parsed url   query: null,
+21 verbose parsed url   pathname: '3.4.0',
+21 verbose parsed url   path: '3.4.0',
+21 verbose parsed url   href: '3.4.0' }
+22 verbose addNamed [ 'monk', '3.4.0' ]
+23 verbose addNamed [ '3.4.0', '3.4.0' ]
+24 silly lockFile 0dfbe0ba-monk-3-4-0 monk@3.4.0
+25 verbose lock monk@3.4.0 C:\Users\Eric\AppData\Roaming\npm-cache\0dfbe0ba-monk-3-4-0.lock
+26 verbose request where is /monk
+27 verbose request registry https://registry.npmjs.org/
+28 verbose request id 4442f854c514821c
+29 verbose url raw /monk
+30 verbose url resolving [ 'https://registry.npmjs.org/', './monk' ]
+31 verbose url resolved https://registry.npmjs.org/monk
+32 verbose request where is https://registry.npmjs.org/monk
+33 info trying registry request attempt 1 at 23:27:56
+34 verbose etag "AACRKLA3WRIK8M5XIM06NMRLZ"
+35 http GET https://registry.npmjs.org/monk
+36 http 304 https://registry.npmjs.org/monk
+37 silly registry.get cb [ 304,
+37 silly registry.get   { date: 'Sun, 05 Oct 2014 03:28:00 GMT',
+37 silly registry.get     server: 'Apache',
+37 silly registry.get     via: '1.1 varnish',
+37 silly registry.get     'last-modified': 'Sun, 05 Oct 2014 03:28:00 GMT',
+37 silly registry.get     'cache-control': 'max-age=60',
+37 silly registry.get     etag: '"AACRKLA3WRIK8M5XIM06NMRLZ"',
+37 silly registry.get     'x-served-by': 'cache-atl6227-ATL',
+37 silly registry.get     'x-cache': 'MISS',
+37 silly registry.get     'x-cache-hits': '0',
+37 silly registry.get     'x-timer': 'S1412479680.830596,VS0,VE127',
+37 silly registry.get     vary: 'Accept',
+37 silly registry.get     'content-length': '0',
+37 silly registry.get     'keep-alive': 'timeout=10, max=50',
+37 silly registry.get     connection: 'Keep-Alive' } ]
+38 verbose etag https://registry.npmjs.org/monk from cache
+39 silly lockFile 0dfbe0ba-monk-3-4-0 monk@3.4.0
+40 silly lockFile 0dfbe0ba-monk-3-4-0 monk@3.4.0
+41 error Error: version not found: monk@3.4.0
+41 error     at C:\Program Files\nodejs\node_modules\npm\lib\cache\add-named.js:125:12
+41 error     at saved (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\get.js:167:7)
+41 error     at Object.oncomplete (fs.js:107:15)
+42 error If you need help, you may report this *entire* log,
+42 error including the npm and node versions, at:
+42 error     <http://github.com/npm/npm/issues>
+43 error System Windows_NT 6.1.7601
+44 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+45 error cwd C:\Users\Eric\Documents\MIT_Sophomore\HackMIT2014\joberino
+46 error node -v v0.10.32
+47 error npm -v 1.4.28
+48 verbose exit [ 1, true ]

@@ -1,7 +1,7 @@
-define(['parser/Applicant'], function(Applicant){
+define(['../../scripts/parser/Applicant'], function(Applicant){
   var Parser = function() {
     // Takes in text of textfile and returns parsed version: Applicant
-    function parse(myText){
+    function parse(myText){	  
       var person = Applicant();
       
       var field_names = person.getFields();
