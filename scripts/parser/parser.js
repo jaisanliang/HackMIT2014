@@ -1,23 +1,10 @@
-define(['Applicant'], function(Applicant){
+define(['parser/Applicant'], function(Applicant){
   var Parser = function() {
     // Takes in text of textfile and returns parsed version: Applicant
-    parse: function(myText){
-      //var field_names = ["NAME:", "ID:", "DOB:"];
-     
+    function parse(myText){
       var person = Applicant();
       
       var field_names = person.getFields();
-      
-      /*
-      //start temp
-      var person = new Object;
-      for(var i = 0, len = field_names; i < len; i++){
-        person[field_names[i]] = "";
-      }
-      //end temp
-      */
-
-      //var myText = "asdfasdfasdf Name:Eric \n Wang \n DOB:12 \n Resume: 1234";
 
       var lines = myText.split("\n"), tempVar;
 
@@ -33,10 +20,7 @@ define(['Applicant'], function(Applicant){
         else if(current_name !== ""){
           person[field_names[j-1]] += " " + lines[i];
         }	
-      }
-      
-      var tempStr = "";
-      
+      }      
       return person;
     }
 
@@ -46,4 +30,4 @@ define(['Applicant'], function(Applicant){
   }; 
 
   return Parser;
-}); 
+});
