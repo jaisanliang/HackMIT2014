@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var requirejs = require('requirejs');
-var fs = require('fs');
 
 var mongo = require('mongodb');
 var monk = require('monk');
@@ -94,7 +93,7 @@ app.use(function(err, req, res, next) {
 
 
 
-var path = process.env.HOME+"/Documents/Michael/2014 MIT Fall/HackMIT2014/Application_Test";
+var path = "../Application_Test";
 console.log(path);
 requirejs(["fileWalker"], function(FileWalker){
   var FileWalker = FileWalker();

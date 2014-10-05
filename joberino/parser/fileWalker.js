@@ -10,6 +10,7 @@ define(['parser'], function(Parser){
 	    var pending = list.length;
 	    if (!pending) return done(null, results);
 	    list.forEach(function(file) {
+	    	console.log("file: " + file);
 	      file = dir + '/' + file;
 	      fs.stat(file, function(err, stat) {
 	        if (stat && stat.isDirectory()) {
@@ -37,16 +38,14 @@ define(['parser'], function(Parser){
 		        throw err;
 		    }
 		    content = data.toString();
+		    console.log(content);
 
 		      var App = Parser();
 		      var read = App.parse(content);
-		      console.log(read.getDOB());
-		      console.log(read.getName());
+		      console.log("DOB: " + read.getDOB());
+		      console.log("Name: " + read.getName());
 
-		      //Joberino.onDrop(read);
-		    // Invoke the next step here however you like
-		    console.log(content);   // Put all of the code here (not the best solution)
-		    //processFile();          // Or put the next step in a function and invoke it
+
 		});
 	  }
     return {
