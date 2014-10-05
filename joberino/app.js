@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var fs = require('fs');
+
 var mongo = require('mongodb');
 var monk = require('monk');
 
@@ -81,5 +83,34 @@ app.use(function(err, req, res, next) {
     });
 });
 
+var walk = function(dir, done) {
+  var results = [];
+  fs.readdir(dir, function(err, list) {
+    if (err) return done(err);
+    var pending = list.length;
+    if (!pending) return done(null, results);
+    list.forEach(function(file) {
+      file = dir + '/' + file;
+      fs.stat(file, function(err, stat) {
+        if (stat && stat.isDirectory()) {
+          walk(file, function(err, res) {
+            results = results.concat(res);
+            if (!--pending) done(null, results);
+          });
+        } else {
+          results.push(file);
+          if (!--pending) done(null, results);
+        }
+      });
+    });
+  });
+};
+
+var path = process.env.HOME+"/Documents/Michael/2014 MIT Fall/HackMIT2014/Application_Test";
+console.log(path);
+walk(path, function(err, results) {
+  if (err) throw err;
+  console.log(results);
+});
 
 module.exports = app;

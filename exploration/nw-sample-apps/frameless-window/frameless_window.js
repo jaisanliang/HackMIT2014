@@ -4,7 +4,7 @@ function updateCheckbox() {
   var left_checkbox = document.getElementById("left-box");
   var right_checkbox = document.getElementById("right-box");
   if (top_checkbox.checked || bottom_checkbox.checked) {
-    left_checkbox.disabled = true;
+    left_checkbox.disabled = false;
     right_checkbox.disabled = true;
   } else if (left_checkbox.checked || right_checkbox.checked) {
     top_checkbox.disabled = true;
