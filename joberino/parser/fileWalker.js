@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 define(['parser'], function(Parser){ 
   var FileWalker = function() {
 
@@ -27,7 +29,7 @@ define(['parser'], function(Parser){
 	    });
 	  });
 	};
-	
+
 	  var getParsedData = function(file) {
 
 		fs.readFile(file, function read(err, data) {
@@ -48,7 +50,7 @@ define(['parser'], function(Parser){
 		});
 	  }
     return {
-      walk:walk;
+      walk:walk
     };
   }
 

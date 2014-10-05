@@ -96,10 +96,14 @@ app.use(function(err, req, res, next) {
 
 var path = process.env.HOME+"/Documents/Michael/2014 MIT Fall/HackMIT2014/Application_Test";
 console.log(path);
-walk(path, function(err, results) {
-  if (err) throw err;
-  console.log(results);
+requirejs(["fileWalker"], function(FileWalker){
+  var FileWalker = FileWalker();
+  FileWalker.walk(path, function(err, results) {
+    if (err) throw err;
+    console.log(results);
+  });
 });
+
 
 
 
